@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\BookController;
 
 /*
@@ -25,3 +26,5 @@ Route::controller(BookController::class)->prefix('books')->group(function () {
     Route::get('store', 'store')->name('books.store');
 
     });
+
+
