@@ -6,8 +6,8 @@
       <h1>Tambah Buku</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Tambah Buku</a></li>
-          <li class="breadcrumb-item"><a href="index.html">Daftar Buku</a></li>
+          <li class="breadcrumb-item"><a href="">Tambah Buku</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('books') }}">Daftar Buku</a></li>
           <li class="breadcrumb-item active">Tambah Buku</li>
         </ol>
       </nav>
@@ -70,7 +70,7 @@
                         <textarea class="form-control" name="about_pengarang" style="height: 100px"></textarea>
                     </div>
                     </div>
-                
+
                     <div class="row mb-3">
                     <label for="inputText" class="col-sm-2 col-form-label">Penerbit</label>
                     <div class="col-sm-10">
@@ -119,11 +119,11 @@
                         <input type="text" name="rak_simpan" class="form-control">
                     </div>
                     </div>
-                    
 
-                    
 
-                    
+
+
+
 
                     <div class="row mb-3">
                     <label class="col-sm-2 col-form-label"></label>
@@ -139,7 +139,7 @@
 
             </div>
 
-        
+
     </main><!-- End #main -->
 
 @endsection

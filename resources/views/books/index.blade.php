@@ -9,7 +9,7 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="">Tambah Buku</a></li>
-          <li class="breadcrumb-item active">Daftar Buku</li>
+          <li class="breadcrumb-item active"><a href="{{ route('books') }}">Daftar Buku</a></li>
         </ol>
       </nav>
       <div style="margin-bottom: 10px;">
