@@ -4,12 +4,12 @@
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item" style="padding-top: 10px">
-    <a class="nav-link collapsed" href="{{ route('dashboard') }}">
+    <a class="nav-link collapsed" href="">
       <i class="bi bi-house-door"></i>
       <span>Home</span>
     </a>
   </li><!-- End Dashboard Nav -->
- 
+
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ route('books') }}">
       <i class="bi bi-book"></i>
