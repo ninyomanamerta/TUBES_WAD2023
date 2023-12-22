@@ -2,72 +2,68 @@
 
 @section('contents')
 <main>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Login Page</title>
     <style>
+        /* Same CSS as the registration page for consistency */
         body {
-            background-color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-
         .container {
-            max-width: 500px;
-            margin: auto;
+            background-color: white;
             padding: 20px;
-            border: 1px solid #e6e6e6;
-            border-radius: 5px;
-            background-color: #fff;
-            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
         }
-
-        .login-title {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .login-button {
+        input[type=text], input[type=password] {
             width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+        button {
             background-color: #4CAF50;
             color: white;
-            padding: 10px;
+            padding: 14px 20px;
+            margin: 8px 0;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
-            text-align: center;
+            width: 100%;
+            border-radius: 4px;
         }
-
-        .login-button:hover {
-            background-color: #45a049;
-        }
-
-        .signup-link {
-            margin-top: 20px;
-            text-align: center;
+        button:hover {
+            opacity: 0.8;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <h2 class="login-title">Login</h2>
-        <form>
-            <div class="form-group">
-                <label for="email">Email address:</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="pwd">Password:</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-            </div>
-            <button type="submit" class="login-button">Login</button>
+        <h2>Login</h2>
+        <form action="/submit-your-login-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="psw">Password:</label>
+            <input type="password" id="psw" name="password" required>
+
+            <button type="submit">Login</button>
         </form>
-        <div class="signup-link">
-            <p>Don't have an account? <a href="register.html">Sign Up</a></p>
-        </div>
     </div>
+
 </body>
 </html>
+
 </main>
 @endsection
