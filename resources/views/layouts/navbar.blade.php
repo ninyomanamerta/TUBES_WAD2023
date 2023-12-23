@@ -9,7 +9,7 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
- 
+
     <!-- FITUR SEARCH -->
     <div class="search-bar">
       <form class="search-form d-flex align-items-center" method="POST" action="searching.php">
@@ -179,7 +179,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6> {{ auth()->user()->name }}
+              <h6>
           <br>
           <small>{{ auth()->user()->level }}</small></h6>
 

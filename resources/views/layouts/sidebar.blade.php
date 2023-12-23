@@ -9,7 +9,7 @@
       <span>Home</span>
     </a>
   </li><!-- End Dashboard Nav -->
- 
+
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ route('books') }}">
       <i class="bi bi-book"></i>

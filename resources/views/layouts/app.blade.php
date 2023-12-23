@@ -8,7 +8,7 @@
   <title>SukLib</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
- 
+
   <!-- Favicons -->
   <link href="{{ asset('assets/Photo/suklib.png') }}" rel="icon">
   <link href="{{ asset('assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/style2.css') }}" rel="stylesheet">
 
 </head>
 
