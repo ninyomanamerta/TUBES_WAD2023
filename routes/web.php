@@ -22,8 +22,8 @@ Route::get('/', function () {
 
 Route::controller(BookController::class)->prefix('books')->group(function () {
     Route::get('', 'index')->name('books');
-    Route::get('create', 'create')->name('books.create');
-    Route::get('store', 'store')->name('books.store');
+    Route::get('tambahbuku', 'create')->name('books.create');
+    Route::post('store', 'store')->name('books.store');
 
     });
 
