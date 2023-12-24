@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $table = 'list_books';
+    protected $table = 'list_books'; 
 
     protected $fillable = [
         'id_buku',

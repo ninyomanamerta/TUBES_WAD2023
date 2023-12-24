@@ -46,8 +46,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                @if($book->count() > 0)
-                    @foreach($book as $rs)
+                @if($list_book->count() > 0)
+                    @foreach($list_book as $rs)
                   <tr>
                     <th>{{ $loop->iteration }}</th>
                     <th scope="row">

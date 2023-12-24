@@ -21,7 +21,7 @@
               <h4 style="padding-top : 10px; padding-bottom:25px">Form Tambah Buku</h4>
 
               <!-- General Form Elements -->
-              <form action="{{ route('books.store') }}" method="GET" enctype="multipart/form-data">
+              <form action="{{ route('books.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
                 <div class="row mb-3">
                     <label for="inputText" class="col-sm-2 col-form-label">ID Buku</label>
