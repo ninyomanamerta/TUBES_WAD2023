@@ -26,8 +26,12 @@ class BookController extends Controller
         return redirect()->route('books')->with('success', 'Buku Berhasil Ditambahkan');
     }
 
+    public function show(string $id)
+    {
+        $book_details = Book::findOrFail($id);
 
-
+        return view('books.show', compact('book_details'));
+    }
 
 
 }
