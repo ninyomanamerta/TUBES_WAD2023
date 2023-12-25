@@ -1,9 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app(sumbang)')
 
 @section('contents')
 
 <main id="main" class="main">
-
     <div class="pagetitle">
       <h1>Sumbangan</h1>
       <nav>
