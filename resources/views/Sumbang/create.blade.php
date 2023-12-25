@@ -30,8 +30,8 @@
                                 <input type="text" class="form-control" placeholder="Nama Buku" name="buku">
                                 <input type="text" class="form-control" placeholder="Nama Pengarang" name="pengarang">
                                 <input type="text" class="form-control" placeholder="Nama Penerbit" name="penerbit">
-                                <input type="number" class="form-control" placeholder="Tahun Terbit" name="terbit">
-                                <textarea class="form-control" style="height: 100px" placeholder="Tambah Detail Buku (Opsional)" name="detailbuku"></textarea>
+                                <input type="number" class="form-control" placeholder="Tahun Terbit" name="tahun_terbit">
+                                <textarea class="form-control" style="height: 100px" placeholder="Tambah Sinopsis Buku (Opsional)" name="sinopsisbuku"></textarea>
                         </div>
                         <div class="col-sm-6">
                               <div class="select sumbangan">

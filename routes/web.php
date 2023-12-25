@@ -16,7 +16,7 @@ use App\Http\Controllers\BookController;
 */
 
 Route::get('/', function () {
-    return view('Sumbang.index');
+    return view('welcome');
 });
 
 
