@@ -46,8 +46,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                @if($book->count() > 0)
-                    @foreach($book as $rs)
+                @if($list_book->count() > 0)
+                    @foreach($list_book as $rs)
                   <tr>
                     <th>{{ $loop->iteration }}</th>
                     <th scope="row">
@@ -65,7 +65,7 @@
                     <td>{{ $rs->created_at }}</td>
                     <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                                <a href="" type="button" class="btn btn-secondary">Detail</a>
+                                <a href="{{ route('books.show', $rs->id) }}" type="button" class="btn btn-secondary">Detail</a>
                                 <a href="" type="button" class="btn btn-warning">Edit</a>
                                 <form action="" method="POST" type="button" class="btn btn-danger p-0" onsubmit="">
                                     <button class="btn btn-danger m-0">Delete</button>
