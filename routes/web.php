@@ -24,7 +24,10 @@ Route::controller(BookController::class)->prefix('books')->group(function () {
     Route::get('', 'index')->name('books');
     Route::get('tambahbuku', 'create')->name('books.create');
     Route::post('store', 'store')->name('books.store');
-    Route::get('detail/{id}', 'show')->name('books.show');
+    Route::get('detailbuku/{id}', 'show')->name('books.show');
+    Route::get('editbuku/{id}', 'edit')->name('books.edit');
+    Route::post('edit/{id}', 'update')->name('books.update');
+    Route::post('hapusbuku/{id}', 'destroy')->name('books.destroy');
 
     });
 

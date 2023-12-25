@@ -33,5 +33,31 @@ class BookController extends Controller
         return view('books.show', compact('book_details'));
     }
 
+    public function edit(string $id)
+    {
+        $book = Book::findOrFail($id);
+
+        return view('books.edit', compact('book'));
+    }
+
+    public function update(Request $request, string $id)
+    {
+        $book = Book::findOrFail($id);
+
+        $book->update($request->all());
+
+        return redirect()->route('books')->with('success', 'Buku Berhasil di Edit');
+    }
+
+    public function destroy(string $id)
+    {
+        $book = Book::findOrFail($id);
+
+        $book->delete();
+
+        return redirect()->route('books')->with('success', 'Buku Berhasil di Hapus');
+    }
+
+
 
 }
