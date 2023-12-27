@@ -19,7 +19,7 @@
           <div class="col detail-buku">
               <div class="card info-card sales-card">
                 <div class="card-body">
-                  <h5 class="card-title">Isi Detail Buku</h5>
+                  <h5 class="card-title">Edit/Hapus Detail Buku</h5>
                   <div class="d-flex align-items-center">
                   <div class="detailbuku">
                     <form action="{{ route('Sumbang.store') }}" method="post">
@@ -61,10 +61,16 @@
                               </div>
                         </div>
                         <div class="row sumbangan">
-                            <div class="submit-button-rectangle">
-                              <input class="btn btn-primary submit-button-rectangle" type="submit" value="Add">
+                            <div class="col edit-button">
+                                <div class="submit-button-rectangle edit-button">
+                                <input class="btn btn-primary submit-button-rectangle" type="submit" value="Save Change">
+                                </div>
                             </div>
-                          </div>
+                            <div class="col edit-button2">
+                                <div class="submit-button-rectangle">
+                                <input class="btn btn-danger submit-button-rectangle delete" type="submit" value="Delete">
+                                </div>
+                            </div>
                       </div>
                     </form>
                     </div>
@@ -72,9 +78,6 @@
                 </div>
                 </div>
               </div>
-            <div class="col thx-menyumbang">
-                @include('Sumbang.index')
-            </div>
 </section>
 </main>
 @endsection

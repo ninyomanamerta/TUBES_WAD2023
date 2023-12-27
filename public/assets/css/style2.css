@@ -1485,3 +1485,63 @@
     font-size: 13px;
     color: #012970;
   }
+
+.tabledb {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabledb th, .tabledb td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.tabledb th {
+    background-color: #fb7d29c6;
+    font-weight: bold;
+}
+
+.edit-btn {
+    background-color: #fb7d29;
+    border-color: #fb7d29;
+}
+
+.edit-btn:hover {
+    background-color: #fb7d29;
+    border-color: #fb7d29;
+}
+
+.btn.btn-danger.submit-button-rectangle.delete {
+    margin-left: 0px
+}
+
+.edit-button {
+    width: 240px;
+}
+
+.col.edit-button {
+    max-width: 240px;
+    padding-right: 0px;
+}
+
+.col.edit-button2 {
+    max-width: 240px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.index-btn {
+    margin-top: 20px;
+}
+
+.index-text {
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    height: 65vh;
+}
