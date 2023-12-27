@@ -28,4 +28,8 @@ Route::controller(BookController::class)->prefix('books')->group(function () {
 
     });
 
-
+//Rute Controller Sumbangan
+Route::get('/Sumbang', 'App\Http\Controllers\SumbangController@create')->name('Sumbang.create');
+Route::get('/Sumbang/show', 'App\Http\Controllers\SumbangController@show')->name('Sumbang.show');
+Route::post('/Sumbang' , 'App\Http\Controllers\SumbangController@store')->name('Sumbang.store');
+Route::get('/Sumbang/edit', 'App\Http\Controllers\SumbangController@edit')->name('Sumbang.edit');

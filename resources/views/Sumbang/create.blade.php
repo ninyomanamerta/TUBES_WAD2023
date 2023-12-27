@@ -22,25 +22,25 @@
                   <h5 class="card-title">Isi Detail Buku</h5>
                   <div class="d-flex align-items-center">
                   <div class="detailbuku">
-                    <form action="sumbangan_buku(Submit).php" method="post">
+                    <form action="{{ route('Sumbang.store') }}" method="post">
                     @csrf
                       <div class="row mb-3 formbuku">
                         <div class="col-sm-6">
-                                <input type="text" class="form-control" placeholder="Nama Penyumbang" name="penyumbang  ">
-                                <input type="text" class="form-control" placeholder="Nama Buku" name="buku">
+                                <input type="text" class="form-control" placeholder="Nama Penyumbang" name="nama_penyumbang">
+                                <input type="text" class="form-control" placeholder="Nama Buku" name="judul_buku">
                                 <input type="text" class="form-control" placeholder="Nama Pengarang" name="pengarang">
                                 <input type="text" class="form-control" placeholder="Nama Penerbit" name="penerbit">
                                 <input type="number" class="form-control" placeholder="Tahun Terbit" name="tahun_terbit">
-                                <textarea class="form-control" style="height: 100px" placeholder="Tambah Sinopsis Buku (Opsional)" name="sinopsisbuku"></textarea>
+                                <textarea class="form-control" style="height: 100px" placeholder="Tambah Sinopsis Buku (Opsional)" name="sinopsis_buku"></textarea>
                         </div>
                         <div class="col-sm-6">
                               <div class="select sumbangan">
-                                <select class="form-select form-select-sm mb-3" aria-label="Small select example">
+                                <select class="form-select form-select-sm mb-3" aria-label="Small select example" name="genre">
                                   <option selected>Kategori</option>
-                                  <option value="kosa">Komputer Sains</option>
-                                  <option value="manke">Manajemen Keuangan</option>
-                                  <option value="sains">Sains</option>
-                                  <option value="sifi">Sains Fiksi</option>
+                                  <option value="Komputer Sains">Komputer Sains</option>
+                                  <option value="Manajemen Keuangan">Manajemen Keuangan</option>
+                                  <option value="Sains">Sains</option>
+                                  <option value="Sains Fiksi">Sains Fiksi</option>
                                 </select>
                               </div>
                               <div class="select sumbangan">
@@ -62,7 +62,7 @@
                         </div>
                         <div class="row sumbangan">
                             <div class="submit-button-rectangle">
-                              <input class="btn btn-primary submit-button-rectangle" type="submit" value="Submit">
+                              <input class="btn btn-primary submit-button-rectangle" type="submit" value="Add">
                             </div>
                           </div>
                       </div>
@@ -72,6 +72,9 @@
                 </div>
                 </div>
               </div>
+            <div class="col thx-menyumbang">
+                @include('Sumbang.index')
+            </div>
 </section>
 </main>
 @endsection
