@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PinjamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,8 +23,17 @@ Route::get('/', function () {
 
 Route::controller(BookController::class)->prefix('books')->group(function () {
     Route::get('', 'index')->name('books');
-    Route::get('create', 'create')->name('books.create');
-    Route::get('store', 'store')->name('books.store');
+    Route::get('tambahbuku', 'create')->name('books.create');
+    Route::post('store', 'store')->name('books.store');
+    Route::get('detail/{id}', 'show')->name('books.show');
+});
 
-    });
+Route::controller(PinjamController::class)->prefix('pinjams')->group(function () {
+    Route::get('', 'index')->name('pinjams');
+    Route::post('store', 'store');
+    Route::post('return', 'return');
+    Route::post('update', 'update');
+    Route::get('delete/{id}', 'delete');
+});
+
 
