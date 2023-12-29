@@ -29,44 +29,8 @@
               </div><!-- End Sales Card -->
             <!-- Revenue Card -->
           </div>
-          <div class="col thx-menyumbang">
+          <div class="col thx-menyumbang-show">
             <p class="thx">TERIMA KASIH TELAH <p class="thx menyumbang">MENYUMBANG!</p></p>
-            <div class="row thx2">
-              <div class="thx-container">
-                <span class="thx-text">Sumbangan mu sebelumnya</span>
-                <div class="row align-items-start thx2-container">
-                    @if($sumbangan->count() > 0)
-                        <div class="col thx">
-                            <div class="card thx">
-                                <div class="thx-card-body">
-                                    <img src="{{ asset($book_details->cover_buku) }}" width="123" height="170">
-                                    <p class="card-title-thx1">Don’t Make Me think</p>
-                                    <p class="card-title-thx2">Steve Krug, 2000</p>
-                                    <p class="card-title-thx3">14k Readers</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        @foreach($sumbangan as $buku)
-                            <div class="col thx">
-                                <div class="card thx">
-                                    <div class="thx-card-body">
-                                        <img src="{{ asset($book_details->cover_buku) }}" width="123" height="170">
-                                        <p class="card-title-thx1">Don’t Make Me think</p>
-                                        <p class="card-title-thx2">Steve Krug, 2000</p>
-                                        <p class="card-title-thx3">14k Readers</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-
-                    </table>
-                @else
-                    <p>Kamu belum menyumbang buku</p>
-                @endif
-                </div>
-              </div>
-          </div>
           </div>
           <!-- Reveneu card end -->
         </div>

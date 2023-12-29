@@ -32,4 +32,6 @@ Route::controller(BookController::class)->prefix('books')->group(function () {
 Route::get('/Sumbang', 'App\Http\Controllers\SumbangController@create')->name('Sumbang.create');
 Route::get('/Sumbang/show', 'App\Http\Controllers\SumbangController@show')->name('Sumbang.show');
 Route::post('/Sumbang' , 'App\Http\Controllers\SumbangController@store')->name('Sumbang.store');
-Route::get('/Sumbang/edit', 'App\Http\Controllers\SumbangController@edit')->name('Sumbang.edit');
+Route::get('/Sumbang/edit{id}', 'App\Http\Controllers\SumbangController@edit')->name('Sumbang.edit');
+Route::put('/Sumbang/update/{id}', 'App\Http\Controllers\SumbangController@update')->name('Sumbang.update');
+Route::delete('/Sumbang/delete/{id}', 'App\Http\Controllers\SumbangController@delete')->name('Sumbang.delete');

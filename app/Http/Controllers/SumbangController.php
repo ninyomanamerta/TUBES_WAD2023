@@ -25,8 +25,30 @@ class SumbangController extends Controller
         return redirect()->route('Sumbang.create')->with('success', 'Buku Berhasil Disumbangkan');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('Sumbang.edit');
+        $sumbangan = Sumbang::find($id);
+        return view('Sumbang.edit', compact('sumbangan'));
     }
+
+    public function update(Request $request, $id)
+    {
+        $sumbangan = Sumbang::find($id);
+        $sumbangan->update($request->all());
+        return redirect()->route('Sumbang.create')->with('success', 'Buku Berhasil Diupdate');
+    }
+
+    public function delete($id)
+    {
+        $sumbangan = Sumbang::find($id);
+
+        if (!$sumbangan) {
+            return redirect()->route('Sumbang.create')->with('error', 'Item not found.');
+        }
+
+        $sumbangan->delete();
+
+        return redirect()->route('Sumbang.create')->with('success', 'Buku berhasil dihapus.');
+    }
+
 }
