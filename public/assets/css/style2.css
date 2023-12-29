@@ -472,6 +472,13 @@
     max-height: 600px;
   }
 
+  .col.thx-menyumbang-show {
+    position: relative;
+    top: 20vh;
+    left: 100px;
+    max-height: 600px;
+  }
+
   .color-orange {
     color: #F4683C;
     text-decoration: underline;
@@ -1527,6 +1534,10 @@
 }
 
 .col.edit-button2 {
+    display: flex;
+    position: relative;
+    bottom: 53px;
+    left: 230px;
     max-width: 240px;
     padding-right: 0px;
     padding-left: 0px;
