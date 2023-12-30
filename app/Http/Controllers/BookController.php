@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller
 {
@@ -21,9 +22,59 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
-        Book::create($request->all());
+        Validator::make($request->all(), [
+            'id_buku' => 'required',
+            'cover_buku' => 'required',
+            'judul_buku' => 'required',
+            'season' => 'required',
+            'sinopsis_buku' => 'required',
+            'pengarang' => 'required',
+            'about_pengarang' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required|digits:4|integer|min:1980|max:'.(date('Y')),
+            'genre' => 'required',
+            'jumlah_halaman' => 'required|integer',
+            'rating' => 'required|numeric|between:1,5',
+            'stok_tersedia' => 'required|integer',
+            'rak_simpan' => 'required'
+        ])->validate();
+
+        if (Book::where('id_buku', $request->id_buku)->exists()) {
+            return back()->withErrors('Duplikat Id Buku')->withInput();
+         }
+         if (Book::where('judul_buku', $request->judul_buku)->exists()) {
+            return back()->withErrors('Duplikat Judul Buku')->withInput();
+         }
+
+         $file = $request->file('cover_buku');
+         $tujuan_upload = 'assets/Photo/';
+         $file->move($tujuan_upload,$file->getClientOriginalName());
+
+        Book::create([
+            'id_buku' => $request->id_buku,
+            'cover_buku' => $file->getClientOriginalName(),
+            'judul_buku' => $request->judul_buku,
+            'season' => $request->season,
+            'sinopsis_buku' => $request->sinopsis_buku,
+            'pengarang' => $request->pengarang,
+            'about_pengarang' => $request->about_pengarang,
+            'penerbit' => $request->penerbit,
+            'tahun_terbit' => $request->tahun_terbit,
+            'genre' => $request->genre,
+            'rating' => $request->rating,
+            'jumlah_halaman' => $request->jumlah_halaman,
+            'stok_tersedia' => $request->stok_tersedia,
+            'rak_simpan' => $request->rak_simpan
+        ]);
 
         return redirect()->route('books')->with('success', 'Buku Berhasil Ditambahkan');
+    }
+
+    public function checkIdBuku(string $idBuku)
+    {
+        $book = Book::findOrFail($idBuku);
+
+        return view('books.edit', compact('book'));
     }
 
     public function show(string $id)
@@ -42,9 +93,63 @@ class BookController extends Controller
 
     public function update(Request $request, string $id)
     {
-        $book = Book::findOrFail($id);
+        $validator = Validator::make($request->all(), [
+            'id_buku' => 'required',
+            'cover_buku2' => 'nullable',
+            'judul_buku' => 'required',
+            'season' => 'required',
+            'sinopsis_buku' => 'required',
+            'pengarang' => 'required',
+            'about_pengarang' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required|digits:4|integer|min:1980|max:' . (date('Y')),
+            'genre' => 'required',
+            'jumlah_halaman' => 'required|integer',
+            'rating' => 'required|numeric|between:1,5',
+            'stok_tersedia' => 'required|integer',
+            'rak_simpan' => 'required'
+        ]);
 
-        $book->update($request->all());
+        if ($validator->fails()) {
+            return back()->withInput()->withErrors($validator->errors());
+        }
+
+        if (Book::where('id_buku', $request->id_buku)->where('id', '<>', $id)->exists()) {
+            return back()->withErrors('Duplikat Id Buku')->withInput();
+        }
+
+        if (Book::where('judul_buku', $request->judul_buku)->where('id', '<>', $id)->exists()) {
+            return back()->withErrors('Duplikat Judul Buku')->withInput();
+        }
+
+        if ($request->hasFile('cover_buku2')){
+            $file = $request->file('cover_buku2');
+            $tujuan_upload = 'assets/Photo/';
+            $file->move($tujuan_upload,$file->getClientOriginalName());
+            $book = Book::findOrFail($id);
+
+            $book->update([
+                'id_buku' => $request->id_buku,
+                    'cover_buku' => $file->getClientOriginalName(),
+                    'judul_buku' => $request->judul_buku,
+                    'season' => $request->season,
+                    'sinopsis_buku' => $request->sinopsis_buku,
+                    'pengarang' => $request->pengarang,
+                    'about_pengarang' => $request->about_pengarang,
+                    'penerbit' => $request->penerbit,
+                    'tahun_terbit' => $request->tahun_terbit,
+                    'genre' => $request->genre,
+                    'rating' => $request->rating,
+                    'jumlah_halaman' => $request->jumlah_halaman,
+                    'stok_tersedia' => $request->stok_tersedia,
+                    'rak_simpan' => $request->rak_simpan,
+            ]);
+
+        }else{
+            $book = Book::findOrFail($id);
+            $book->update($request->all());
+        }
+
 
         return redirect()->route('books')->with('success', 'Buku Berhasil di Edit');
     }

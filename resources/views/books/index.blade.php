@@ -20,6 +20,16 @@
             {{ Session::get('success') }}
         </div>
         @endif
+        {{-- @if ($errors->any())
+                      <div class="alert alert-danger" role="alert" style="padding-top:10px">
+                          <ul>
+                            @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                            @endforeach
+                          </ul>
+                      </div>
+                    @endif --}}
+
     </div><!-- End Page Title -->
     <section class="section dashboard">
       <div class="row">
@@ -51,7 +61,7 @@
                   <tr>
                     <th>{{ $loop->iteration }}</th>
                     <th scope="row">
-                      <a><img src="{{ asset($rs->cover_buku) }}" alt=""></a>
+                      <a><img src="{{ asset('assets/Photo/'.$rs->cover_buku) }}" alt=""></a>
                     </th>
                     <td>
                       <a class="text-dark fw-bold">{{ $rs->judul_buku }}</a><br>
