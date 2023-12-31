@@ -31,7 +31,12 @@
     </a>
   </li><!-- End Register Page Nav -->
 
-
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{ route('users.index') }}">
+      <i class="bi bi-box2-heart"></i>
+      <span>Member list</span>
+    </a>
+  </li>
 
 
 

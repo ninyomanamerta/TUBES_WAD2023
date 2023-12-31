@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\PinjamController;
 use App\Http\Controllers\PengembalianController;
-
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,15 @@ use App\Http\Controllers\PengembalianController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 
+Auth::routes();
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
 
 Route::controller(BookController::class)->prefix('books')->group(function () {
     Route::get('', 'index')->name('books');
@@ -56,6 +65,8 @@ Route::controller(PengembalianController::class)->prefix('pengembalian')->group(
     Route::post('update', 'update');
     Route::get('delete/{id}', 'delete');
 });
+
+Route::resource('/users', UserController::class);
 
 
 

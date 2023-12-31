@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->enum('status', ['Aktif', 'Tidak Aktif'])->default('Aktif');
+            $table->boolean('is_admin', [0, 1])->default(0);
         });
     }
 
