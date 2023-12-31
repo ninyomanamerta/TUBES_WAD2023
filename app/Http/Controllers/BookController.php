@@ -6,11 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use File;
 
+
 class BookController extends Controller
 {
 
     public function index()
     {
+
         $list_book = Book::orderBy('id_buku')->get();
         return view('books.index', compact('list_book'));
     }
@@ -23,6 +25,7 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
+
         Validator::make($request->all(), [
             'id_buku' => 'required|unique:list_books,id_buku',
             'cover_buku' => 'file|image|max:5000|required',
@@ -71,6 +74,8 @@ class BookController extends Controller
         $book = Book::findOrFail($idBuku);
 
         return view('books.edit', compact('book'));
+
+
     }
 
     public function show(string $id)
@@ -79,6 +84,7 @@ class BookController extends Controller
 
         return view('books.show', compact('book_details'));
     }
+
 
     public function edit(string $id)
     {
@@ -157,6 +163,7 @@ class BookController extends Controller
         }
 
     }
+
 
 
 

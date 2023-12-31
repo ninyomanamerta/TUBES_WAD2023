@@ -9,15 +9,13 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('peminjaman', function (Blueprint $table) {
+        Schema::create('pengembalians', function (Blueprint $table) {
             $table->id();
-
-            $table->string('kode');
-            $table->integer('id_buku');
-            $table->string('id_member');
-            $table->date('tanggal_peminjaman');
+            $table->integer('id_peminjaman');
+            $table->date('tanggal_pengembalian');
+            $table->text('ulasan');
             $table->string('status');
             $table->timestamps();
         });
@@ -26,8 +24,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
+    public function down(): void
     {
-        Schema::dropIfExists('peminjaman');
+        Schema::dropIfExists('pengembalians');
     }
 };

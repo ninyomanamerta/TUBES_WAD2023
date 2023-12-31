@@ -18,9 +18,16 @@
   </li><!-- End Register Page Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="/riwayat.php">
+    <a class="nav-link collapsed" href="{{ url('peminjaman') }}">
       <i class="bi bi-journals"></i>
-      <span>Riwayat</span>
+      <span>Peminjaman</span>
+    </a>
+  </li><!-- End Register Page Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link collapsed" href="{{ url('pengembalian') }}">
+      <i class="bi bi-journals"></i>
+      <span>Pengembalian</span>
     </a>
   </li><!-- End Register Page Nav -->
 

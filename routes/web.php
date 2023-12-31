@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\PinjamController;
+use App\Http\Controllers\PengembalianController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +41,21 @@ Route::post('/Sumbang' , 'App\Http\Controllers\SumbangController@store')->name('
 Route::get('/Sumbang/edit{id}', 'App\Http\Controllers\SumbangController@edit')->name('Sumbang.edit');
 Route::put('/Sumbang/update/{id}', 'App\Http\Controllers\SumbangController@update')->name('Sumbang.update');
 Route::delete('/Sumbang/delete/{id}', 'App\Http\Controllers\SumbangController@delete')->name('Sumbang.delete');
+
+
+Route::controller(PinjamController::class)->prefix('peminjaman')->group(function () {
+    Route::get('', 'index')->name('peminjaman');
+    Route::post('store', 'store');
+    Route::post('update', 'update');
+    Route::get('delete/{id}', 'delete');
+});
+
+Route::controller(PengembalianController::class)->prefix('pengembalian')->group(function () {
+    Route::get('', 'index')->name('pengembalian');
+    Route::post('store', 'store');
+    Route::post('update', 'update');
+    Route::get('delete/{id}', 'delete');
+});
+
+
+

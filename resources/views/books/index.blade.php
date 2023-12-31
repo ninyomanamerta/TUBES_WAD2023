@@ -9,6 +9,8 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{{ route('books') }}">Tambah Buku</a></li>
+
+
           <li class="breadcrumb-item active"><a href="{{ route('books') }}">Daftar Buku</a></li>
         </ol>
       </nav>
@@ -30,6 +32,7 @@
 
 
             <div class="card-body pb-0">
+
               <h5 class="card-title">Daftar Buku <span>| Semua</span></h5>
 
               <table class="table table-borderless">
@@ -52,7 +55,9 @@
                   <tr>
                     <th>{{ $loop->iteration }}</th>
                     <th scope="row">
+
                       <a><img src="{{ asset('assets/Photo/'.$rs->cover_buku) }}" alt=""></a>
+
                     </th>
                     <td>
                       <a class="text-dark fw-bold">{{ $rs->judul_buku }}</a><br>
@@ -70,6 +75,7 @@
                                 <a href="{{ route('books.edit', $rs->id)}}" type="button" class="btn btn-warning">Edit</a>
                                 <form action="{{ route('books.destroy', $rs->id)}}" method="POST" type="button" class="btn btn-danger p-0" onsubmit="return confirm('Yakin Ingin Menghapus?')">
                                     @csrf
+
                                     <button class="btn btn-danger m-0">Delete</button>
                                 </form>
                             </div>
