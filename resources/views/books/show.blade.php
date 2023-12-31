@@ -24,7 +24,7 @@
           <!-- Card kedua -->
           <div class="card">
 
-            <img src="{{ asset($book_details->cover_buku) }}" class="card-img-top" alt="..." style="height: 206px; ">
+            <img src="{{ asset('assets/Photo/'.$book_details->cover_buku) }}" class="card-img-top" alt="..." style="height: 206px; ">
             <div class="card-body">
               <h5 class="card-title">{{ $book_details->judul_buku }}</h5>
               <p style="font-size: 12px;">{{ $book_details->pengarang }}, {{ $book_details->tahun_terbit }} <br> {{ $book_details->rating }}/5</p>

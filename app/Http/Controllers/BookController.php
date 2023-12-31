@@ -10,7 +10,7 @@ class BookController extends Controller
 
     public function index()
     {
-        $list_book = Book::orderBy('created_at', 'DESC')->get();
+        $list_book = Book::orderBy('id_buku')->get();
         return view('books.index', compact('list_book'));
     }
 
@@ -23,9 +23,9 @@ class BookController extends Controller
     public function store(Request $request)
     {
         Validator::make($request->all(), [
-            'id_buku' => 'required',
-            'cover_buku' => 'required',
-            'judul_buku' => 'required',
+            'id_buku' => 'required|unique:list_books,id_buku',
+            'cover_buku' => 'file|image|max:5000|required',
+            'judul_buku' => 'required|unique:list_books,judul_buku',
             'season' => 'required',
             'sinopsis_buku' => 'required',
             'pengarang' => 'required',
@@ -39,18 +39,13 @@ class BookController extends Controller
             'rak_simpan' => 'required'
         ])->validate();
 
-        if (Book::where('id_buku', $request->id_buku)->exists()) {
-            return back()->withErrors('Duplikat Id Buku')->withInput();
-         }
-         if (Book::where('judul_buku', $request->judul_buku)->exists()) {
-            return back()->withErrors('Duplikat Judul Buku')->withInput();
-         }
 
-         $file = $request->file('cover_buku');
-         $tujuan_upload = 'assets/Photo/';
-         $file->move($tujuan_upload,$file->getClientOriginalName());
 
-        Book::create([
+
+        $file = $request->file('cover_buku');
+        $tujuan_upload = 'assets/Photo/';
+        $file->move($tujuan_upload,$file->getClientOriginalName());
+        $newbook = Book::create([
             'id_buku' => $request->id_buku,
             'cover_buku' => $file->getClientOriginalName(),
             'judul_buku' => $request->judul_buku,
@@ -67,7 +62,7 @@ class BookController extends Controller
             'rak_simpan' => $request->rak_simpan
         ]);
 
-        return redirect()->route('books')->with('success', 'Buku Berhasil Ditambahkan');
+        return redirect()->route('books')->with('success', 'Buku Dengan ID '. $newbook->id_buku . ' Berhasil Ditambahkan');
     }
 
     public function checkIdBuku(string $idBuku)
@@ -95,7 +90,7 @@ class BookController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id_buku' => 'required',
-            'cover_buku2' => 'nullable',
+            'cover_buku2' => 'file|image|max:5000|nullable',
             'judul_buku' => 'required',
             'season' => 'required',
             'sinopsis_buku' => 'required',
@@ -151,7 +146,7 @@ class BookController extends Controller
         }
 
 
-        return redirect()->route('books')->with('success', 'Buku Berhasil di Edit');
+        return redirect()->route('books')->with('success', 'Buku Dengan ID '. $book->id_buku . ' Buku Berhasil di Edit');
     }
 
     public function destroy(string $id)
@@ -160,7 +155,7 @@ class BookController extends Controller
 
         $book->delete();
 
-        return redirect()->route('books')->with('success', 'Buku Berhasil di Hapus');
+        return redirect()->route('books')->with('success', 'Buku Dengan ID ' . $book->id_buku .' Berhasil di Hapus');
     }
 
 
