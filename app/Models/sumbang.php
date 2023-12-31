@@ -12,7 +12,6 @@ class sumbang extends Model
     protected $table = 'sumbangan';
 
     protected $fillable = [
-        'id_buku',
         'judul_buku',
         'nama_penyumbang',
         'pengarang',
