@@ -226,6 +226,7 @@
                     <label class="col-sm-2 col-form-label"></label>
                     <div class="col-sm-10">
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        <a href="{{ route('books') }}" class="btn btn-secondary">Batal</a>
                     </div>
                     </div>
 
