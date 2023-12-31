@@ -9,11 +9,11 @@ class PinjamController extends Controller
 {
 
     function index(){
-        $data['data'] = Pinjam::select("peminjaman.*","daftar_books.cover_buku","daftar_books.judul_buku","daftar_books.pengarang","daftar_books.tahun_terbit")
-                                ->leftJoin('daftar_books','daftar_books.id','=','peminjaman.id_buku')
+        $data['data'] = Pinjam::select("peminjaman.*","list_books.cover_buku","list_books.judul_buku","list_books.pengarang","list_books.tahun_terbit")
+                                ->leftJoin('list_books','list_books.id','=','peminjaman.id_buku')
                                 ->get();
-        $data['datacount'] = Pinjam::select("peminjaman.*","daftar_books.cover_buku","daftar_books.judul_buku","daftar_books.pengarang","daftar_books.tahun_terbit")
-                                ->leftJoin('daftar_books','daftar_books.id','=','peminjaman.id_buku')
+        $data['datacount'] = Pinjam::select("peminjaman.*","list_books.cover_buku","list_books.judul_buku","list_books.pengarang","list_books.tahun_terbit")
+                                ->leftJoin('list_books','list_books.id','=','peminjaman.id_buku')
                                 ->count();
         $data['books'] = Book::all();
         return view('peminjaman.index',$data);
@@ -36,7 +36,7 @@ class PinjamController extends Controller
         $data->id_buku = Request()->id_buku;
         $data->tanggal_peminjaman = Request()->tanggalPeminjaman;
         $data->save();
-        return redirect()->route('peminjaman')->with('success', 'Peminjaman Buku Berhasil Dikembalikan!');
+        return redirect()->route('peminjaman')->with('success', 'Peminjaman Buku Berhasil Di Edit!');
     }
     function delete($id){
         Pinjam::where('id',$id)->delete();

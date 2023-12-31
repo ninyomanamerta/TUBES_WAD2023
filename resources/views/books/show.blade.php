@@ -58,7 +58,7 @@
                 </div>
               </div>
               <div class="row" style="padding-top: 20px; ">
-              <a href="form-peminjaman.php" class="btn btn-success btn-sm" style="width: 200px; background-color: #FA7C54; border: none;">Pinjam</a>
+              <a href="{{ route('peminjaman') }}" class="btn btn-success btn-sm" style="width: 200px; background-color: #FA7C54; border: none;">Pinjam</a>
               </div>
 
 
