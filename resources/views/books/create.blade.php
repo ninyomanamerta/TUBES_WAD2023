@@ -3,12 +3,12 @@
 @section('contents')
 <main id="main" class="main">
     <div class="pagetitle">
-      <h1>Tambah Buku</h1>
+      <h1>Tambah Data Buku</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="">Tambah Buku</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('books') }}">Tambah Buku</a></li>
           <li class="breadcrumb-item"><a href="{{ route('books') }}">Daftar Buku</a></li>
-          <li class="breadcrumb-item active">Tambah Buku</li>
+          <li class="breadcrumb-item active">Tambah Data Buku</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -203,11 +203,6 @@
                         @enderror
                     </div>
                     </div>
-
-
-
-
-
 
                     <div class="row mb-3">
                     <label class="col-sm-2 col-form-label"></label>

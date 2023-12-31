@@ -9,7 +9,8 @@
       <h1>Detail Buku</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="home-member.php">Home</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('books') }}">Tambah Buku</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('books') }}">Daftar Buku</a></li>
           <li class="breadcrumb-item active">Details</li>
         </ol>
       </nav>

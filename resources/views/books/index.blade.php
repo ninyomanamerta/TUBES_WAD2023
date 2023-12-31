@@ -8,7 +8,7 @@
 
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="">Tambah Buku</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('books') }}">Tambah Buku</a></li>
           <li class="breadcrumb-item active"><a href="{{ route('books') }}">Daftar Buku</a></li>
         </ol>
       </nav>
@@ -20,15 +20,6 @@
             {{ Session::get('success') }}
         </div>
         @endif
-        {{-- @if ($errors->any())
-                      <div class="alert alert-danger" role="alert" style="padding-top:10px">
-                          <ul>
-                            @foreach ($errors->all() as $error)
-                              <li>{{ $error }}</li>
-                            @endforeach
-                          </ul>
-                      </div>
-                    @endif --}}
 
     </div><!-- End Page Title -->
     <section class="section dashboard">
@@ -39,7 +30,7 @@
 
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Daftar Buku <span>| All</span></h5>
+              <h5 class="card-title">Daftar Buku <span>| Semua</span></h5>
 
               <table class="table table-borderless">
                 <thead>

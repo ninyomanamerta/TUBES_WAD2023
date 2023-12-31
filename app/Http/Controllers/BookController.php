@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use File;
 
 class BookController extends Controller
 {
@@ -89,9 +90,9 @@ class BookController extends Controller
     public function update(Request $request, string $id)
     {
         $validator = Validator::make($request->all(), [
-            'id_buku' => 'required',
+            'id_buku' => 'required|unique:list_books,id_buku,' . $id,
             'cover_buku2' => 'file|image|max:5000|nullable',
-            'judul_buku' => 'required',
+            'judul_buku' => 'required|unique:list_books,judul_buku,' . $id,
             'season' => 'required',
             'sinopsis_buku' => 'required',
             'pengarang' => 'required',
@@ -109,13 +110,7 @@ class BookController extends Controller
             return back()->withInput()->withErrors($validator->errors());
         }
 
-        if (Book::where('id_buku', $request->id_buku)->where('id', '<>', $id)->exists()) {
-            return back()->withErrors('Duplikat Id Buku')->withInput();
-        }
-
-        if (Book::where('judul_buku', $request->judul_buku)->where('id', '<>', $id)->exists()) {
-            return back()->withErrors('Duplikat Judul Buku')->withInput();
-        }
+        $id_to_exclude = $request->id_buku;
 
         if ($request->hasFile('cover_buku2')){
             $file = $request->file('cover_buku2');
@@ -124,7 +119,7 @@ class BookController extends Controller
             $book = Book::findOrFail($id);
 
             $book->update([
-                'id_buku' => $request->id_buku,
+                    'id_buku' => $request->id_buku,
                     'cover_buku' => $file->getClientOriginalName(),
                     'judul_buku' => $request->judul_buku,
                     'season' => $request->season,
@@ -152,10 +147,15 @@ class BookController extends Controller
     public function destroy(string $id)
     {
         $book = Book::findOrFail($id);
+        $file_path='assets/Photo/'.$book->cover_buku;
+        if(File::exists($file_path)){
+            File::delete($file_path);
+            $book->delete();
+            return redirect()->route('books')->with('success', 'Buku Dengan ID ' . $book->id_buku .' Berhasil di Hapus');
+        } else{
+            return back()->withErrors('Gagal hapus buku');
+        }
 
-        $book->delete();
-
-        return redirect()->route('books')->with('success', 'Buku Dengan ID ' . $book->id_buku .' Berhasil di Hapus');
     }
 
 

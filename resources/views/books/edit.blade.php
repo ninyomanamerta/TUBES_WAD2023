@@ -7,8 +7,8 @@
       <h1>Edit Buku</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="">Home</a></li>
           <li class="breadcrumb-item"><a href="{{ route('books') }}">Tambah Buku</a></li>
+          <li class="breadcrumb-item"><a href="{{ route('books') }}">Daftar Buku</a></li>
           <li class="breadcrumb-item active">Edit Buku</li>
         </ol>
       </nav>
@@ -34,6 +34,7 @@
                                 {{ $message }}
                             </span>
                         @enderror
+
                     </div>
                     </div>
 
@@ -147,7 +148,8 @@
                     <div class="col-sm-10">
 
                         <select required name="genre" class="form-control">
-                            <option value="{{ $book->genre}}">{{ $book->genre}}</option>
+                            <option selected value="{{ $book->genre}}">{{ $book->genre}}</option>
+                            <option value=""> --- Pilih Genre ---</option>
                             <option value="Fiksi" @selected(old('genre')) === 'Fiksi'>Fiksi</option>
                             <option value="Horor" @selected(old('genre')) === 'Horor'>Horor</option>
                             <option value="Komedi" @selected(old('genre')) === 'Komedi'>Komedi</option>
@@ -203,7 +205,8 @@
                     <label for="inputText" class="col-sm-2 col-form-label">Lokasi Rak</label>
                     <div class="col-sm-10">
                         <select required name="rak_simpan" class="form-control">
-                            <option value="{{ $book->rak_simpan}}">{{ $book->rak_simpan}}</option>
+                            <option selected value="{{ $book->rak_simpan}}">{{ $book->rak_simpan}}</option>
+                            <option value=""> --- Pilih Lokasi Rak ---</option>
                             <option value="A101" @selected(old('rak_simpan')) === "A101-Fiksi">A101-Fiksi</option>
                             <option value="A102" @selected(old('rak_simpan')) === "A102-Romance">A102- Romance</option>
                             <option value="B101" @selected(old('rak_simpan')) === "B101-Horor">B101 - Horor</option>
