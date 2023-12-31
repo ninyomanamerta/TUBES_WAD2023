@@ -29,6 +29,13 @@ Route::controller(BookController::class)->prefix('books')->group(function () {
     Route::get('detail/{id}', 'show')->name('books.show');
 });
 
+Route::controller(PinjamController::class)->prefix('peminjaman')->group(function () {
+    Route::get('', 'index')->name('peminjaman');
+    Route::post('store', 'store');
+    Route::post('update', 'update');
+    Route::get('delete/{id}', 'delete');
+});
+
 Route::controller(PengembalianController::class)->prefix('pengembalian')->group(function () {
     Route::get('', 'index')->name('pengembalian');
     Route::post('store', 'store');
